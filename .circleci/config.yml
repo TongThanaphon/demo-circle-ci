@@ -7,9 +7,10 @@ jobs:
       - checkout
       - run:
           name: Init
-          command: |
-            yarn
+          command: yarn
       - run:
           name: Test
-          command: |
-            yarn test
+          command: yarn test
+      - run:
+          name: Build
+          command: yarn build
