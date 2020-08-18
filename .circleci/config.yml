@@ -19,6 +19,9 @@ jobs:
       - image: circleci/node:12.9.1-browsers
     steps:
       - run:
+          name: Init
+          command: yarn
+      - run:
           name: Deploy
           command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
 workflows:
