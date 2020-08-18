@@ -8,7 +8,7 @@ jobs:
       - run:
           name: Test
           command: |
-            yarn test a
+            yarn test
 workflows:
   version: 1
   example:
