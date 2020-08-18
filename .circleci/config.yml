@@ -6,9 +6,9 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Running Node
+          name: Test
           command: |
-            node -v
+            yarn test a
 workflows:
   version: 1
   example:
