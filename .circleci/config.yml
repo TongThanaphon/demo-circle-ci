@@ -14,19 +14,3 @@ jobs:
       - run:
           name: Build
           command: yarn build
-    deploy-job:
-      steps:
-        - run:
-            name: Deploysss
-            command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
-workflows:
-  version: 1
-  deploy:
-    jobs:
-      - build
-      - deploy-job:
-          requires:
-            - build
-          filters:
-            branches:
-              only: master
