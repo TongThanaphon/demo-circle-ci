@@ -9,3 +9,7 @@ jobs:
           name: Install
           command: |
             yarn
+      - run:
+          name: Test
+          command: |
+            yarn test a
