@@ -6,10 +6,10 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install
+          name: Init
           command: |
             yarn
       - run:
           name: Test
           command: |
-            yarn test a
+            yarn test
