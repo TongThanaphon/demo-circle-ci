@@ -5,7 +5,10 @@ jobs:
       - image: circleci/node:9.9.0
     steps:
       - checkout
-      - run: echo "Test naja"
+      - run:
+          name: Running Node
+          command: |
+            node -v
 workflows:
   version: 1
   example:
