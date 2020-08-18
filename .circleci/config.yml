@@ -6,3 +6,8 @@ jobs:
     steps:
       - checkout
       - run: echo "Test naja"
+workflows:
+  version: 1
+  example:
+    jobs:
+      - test
