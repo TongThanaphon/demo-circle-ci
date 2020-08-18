@@ -23,6 +23,9 @@ jobs:
           name: Init
           command: yarn
       - run:
+          name: Login
+          command: ./node_modules/.bin/firebase login
+      - run:
           name: Add
           command: ./node_modules/.bin/firebase use --add
       - run:
