@@ -24,7 +24,7 @@ jobs:
           command: yarn
       - run:
           name: Deploy
-          command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN --project=fir-circle-ci-44525
+          command: echo $FIREBASE_DEPLOY_TOKEN
 workflows:
   version: 1
   deploy:
