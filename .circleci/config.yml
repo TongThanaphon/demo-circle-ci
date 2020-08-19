@@ -24,7 +24,7 @@ jobs:
           command: yarn
       - run:
           name: Deploy
-          command: echo $FIREBASE_DEPLOY_TOKEN
+          command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
 workflows:
   version: 1
   deploy:
