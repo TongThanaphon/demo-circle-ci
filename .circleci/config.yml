@@ -23,14 +23,8 @@ jobs:
           name: Init
           command: yarn
       - run:
-          name: Login
-          command: ./node_modules/.bin/firebase login
-      - run:
-          name: Add
-          command: ./node_modules/.bin/firebase use --add
-      - run:
           name: Deployss
-          command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN --project fir-circle-ci-347de
+          command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
 workflows:
   version: 1
   deploy:
