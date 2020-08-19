@@ -14,25 +14,3 @@ jobs:
       - run:
           name: Build
           command: yarn build
-  deploy-job:
-    docker:
-      - image: circleci/node:12.9.1-browsers
-    steps:
-      - checkout
-      - run:
-          name: Init
-          command: yarn
-      - run:
-          name: Deploy
-          command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
-workflows:
-  version: 1
-  deploy:
-    jobs:
-      - build
-      - deploy-job:
-          requires:
-            - build
-          filters:
-            branches:
-              only: master
