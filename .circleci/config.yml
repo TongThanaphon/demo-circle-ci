@@ -23,7 +23,7 @@ jobs:
           name: Init
           command: yarn
       - run:
-          name: Deployss
+          name: Deploy
           command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
 workflows:
   version: 1
