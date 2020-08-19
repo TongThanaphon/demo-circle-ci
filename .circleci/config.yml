@@ -21,7 +21,9 @@ jobs:
       - checkout
       - run:
           name: Init
-          command: yarn
+          command: |
+            yarn
+            yarn build
       - run:
           name: Deploy
           command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
