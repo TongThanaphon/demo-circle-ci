@@ -1,3 +1,19 @@
+###################################################
+########## Cache Workspace Dependencies ###########
+###################################################
+restore_cache: &restore_cache
+  restore_cache:
+    name: Restore Yarn Package Cache
+    keys:
+      - yarn-packages-{{ checksum "yarn.lock" }}
+# Don't forget to update these paths when add/remove packages
+save_cache: &save_cache
+  save_cache:
+    name: Save Yarn Package Cache
+    key: yarn-packages-{{ checksum "yarn.lock" }}
+    paths:
+      - /usr/local/share/.cache/yarn/v4
+
 version: 2.1
 jobs:
   build:
@@ -5,6 +21,7 @@ jobs:
       - image: circleci/node:12.9.1-browsers
     steps:
       - checkout
+      - *restore_cache
       - run:
           name: Init
           command: yarn
@@ -14,11 +31,13 @@ jobs:
       - run:
           name: Build
           command: yarn build
+      - *save_cache
   deploy-job:
     docker:
       - image: circleci/node:12.9.1-browsers
     steps:
       - checkout
+      - *restore_cache
       - run:
           name: Init
           command: |
@@ -27,6 +46,7 @@ jobs:
       - run:
           name: Deploy
           command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
+      - *save_cache
 workflows:
   version: 1
   deploy:
